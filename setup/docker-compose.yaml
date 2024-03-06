@@ -1,6 +1,4 @@
 version: "3.8"
-volumes:
-  psql:
 services:
   test-postgres:
     image: postgres
@@ -8,7 +6,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: example
     volumes:
-      - psql:/var/lib/postgres/data
+      - ./psql:/var/lib/postgresql/data
       - ./psql_init:/docker-entrypoint-initdb.d
     ports:
       - 5555:5432
